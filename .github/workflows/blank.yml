@@ -33,12 +33,20 @@ jobs:
       run: |
         unzip ./packages/Microsoft.Web.WebView2.${{ env.WEBVIEW2_VERSION }}/Microsoft.Web.WebView2.${{ env.WEBVIEW2_VERSION }}.nupkg -d ./packages/WebView2
         rm -fr ./packages/Microsoft.Web.WebView*
+        rm -fr ./packages/WebView2/{lib,package,tools,Microsoft.Web.WebView2.nuspec,LICENSE,[Content_Types].xml,runtimes}
+        mv ./package/WebView2/build/native/include ./packages/WebView2/include
+        mkdir ./package/WebView2/lib
+        mv ./package/WebView2/build/native/x64 ./package/WebView2/lib
+        mv ./package/WebView2/build/native/x86 ./package/WebView2/lib
+        mv ./package/WebView2/build/native/arm64 ./package/WebView2/lib
 
     - name: Unpack WIL
       shell: bash
       run: |
         unzip ./packages/Microsoft.Windows.ImplementationLibrary.${{ env.WIL_VERSION }}/Microsoft.Windows.ImplementationLibrary.${{ env.WIL_VERSION }}.nupkg -d ./packages/WIL
         rm -fr ./packages/Microsoft.Windows.ImplementationLibrary*
+        rm -fr ./packages/WIL/{build,package,Microsoft.Windows.ImplementationLibrary.nuspec,LICENSE,[Content_Types].xml,ThirdPartyNotices.txt}
+        
 
     - name: Upload Release artifact (x64)
       uses: actions/upload-artifact@v4
