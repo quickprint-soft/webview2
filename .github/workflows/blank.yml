@@ -109,5 +109,5 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd ./artifacts
-          gh release upload $RELEASE_DATE ./packages.zip
+          gh release upload $RELEASE_DATE ./WebView2.zip
           gh release upload $RELEASE_DATE ./filelist.txt
