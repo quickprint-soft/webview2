@@ -14,8 +14,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Install NuGet
-      run: sudo apt-get install nuget -y
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '7.0.x' # Specify the version of .NET SDK you want to use
+        
 
     - name: Download WebView2 SDK
       run: nuget install Microsoft.Web.WebView2 -Version 1.0.1264.42 -OutputDirectory ./packages
