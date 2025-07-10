@@ -89,7 +89,8 @@ jobs:
       - name: Compress Artifacts
         run: |
           cd ./artifacts/WebView2
-          zip -r ../WebView2.zip ./*
+          zip -r ../WebView2_dbg_x64.zip ./*
+          zip -r ../WebView2_dbg_x64.zip ../WebView2_rel_x64.zip
  
 
       - name: Generate MD5 Checksums
@@ -108,5 +109,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd ./artifacts
-          gh release upload $RELEASE_DATE ./WebView2.zip
+          gh release upload $RELEASE_DATE ./WebView2_dbg_x64.zip
+          gh release upload $RELEASE_DATE ./WebView2_rel_x64.zip
           gh release upload $RELEASE_DATE ./filelist.txt
