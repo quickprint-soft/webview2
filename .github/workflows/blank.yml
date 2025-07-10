@@ -55,7 +55,7 @@ jobs:
     - name: Upload Release artifact (x64)
       uses: actions/upload-artifact@v4
       with:
-        name: webview2
+        name: WebView2
         path: packages
         
   create-release:
@@ -89,8 +89,8 @@ jobs:
 
       - name: Compress Artifacts
         run: |
-          cd ./artifacts
-          zip -r ./packages.zip ./*
+          cd ./artifacts/WebView2
+          zip -r ../WebView2.zip ./*
  
 
       - name: Generate MD5 Checksums
