@@ -34,13 +34,13 @@ jobs:
         unzip ./packages/Microsoft.Web.WebView2.${{ env.WEBVIEW2_VERSION }}/Microsoft.Web.WebView2.${{ env.WEBVIEW2_VERSION }}.nupkg -d ./packages/WebView2
         rm -fr ./packages/Microsoft.Web.WebView*
         rm -fr ./packages/WebView2/{lib,package,tools,Microsoft.Web.WebView2.nuspec,LICENSE,[Content_Types].xml,runtimes}
-        ls ./package/WebView2
-        ls ./package/WebView2/build
-        mv ./package/WebView2/build/native/include ./packages/WebView2/include
+        ls ./packages/WebView2
+        ls ./packages/WebView2/build
+        mv ./packages/WebView2/build/native/include ./packages/WebView2/include
         mkdir ./package/WebView2/lib
-        mv ./package/WebView2/build/native/x64 ./package/WebView2/lib
-        mv ./package/WebView2/build/native/x86 ./package/WebView2/lib
-        mv ./package/WebView2/build/native/arm64 ./package/WebView2/lib
+        mv ./packages/WebView2/build/native/x64 ./package/WebView2/lib
+        mv ./packages/WebView2/build/native/x86 ./package/WebView2/lib
+        mv ./packages/WebView2/build/native/arm64 ./package/WebView2/lib
 
     - name: Unpack WIL
       shell: bash
