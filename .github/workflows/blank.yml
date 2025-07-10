@@ -78,7 +78,7 @@ jobs:
       - name: Compress Artifacts
         run: |
           cd ./artifacts
-          zip -r ../packages.zip ./*
+          zip -r ./packages.zip ./*
  
 
       - name: Generate MD5 Checksums
