@@ -40,9 +40,9 @@ jobs:
         mkdir ./packages/WebView2/lib
         ls ./packages/WebView2/build/
         ls ./packages/WebView2/build/native
-        mv ./packages/WebView2/build/native/x64 ./package/WebView2/lib
-        mv ./packages/WebView2/build/native/x86 ./package/WebView2/lib
-        mv ./packages/WebView2/build/native/arm64 ./package/WebView2/lib
+        mv ./packages/WebView2/build/native/x64 ./packages/WebView2/lib
+        mv ./packages/WebView2/build/native/x86 ./packages/WebView2/lib
+        mv ./packages/WebView2/build/native/arm64 ./packages/WebView2/lib
 
     - name: Unpack WIL
       shell: bash
