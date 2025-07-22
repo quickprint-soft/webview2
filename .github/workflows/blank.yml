@@ -91,6 +91,8 @@ jobs:
           cd ./artifacts/WebView2
           zip -r ../WebView2_dbg_x64.zip ./*
           cp ../WebView2_dbg_x64.zip ../WebView2_rel_x64.zip
+          cp ../WebView2_dbg_x64.zip ../WebView2_rel_win32.zip
+          cp ../WebView2_dbg_x64.zip ../WebView2_dbg_win32.zip
  
 
       - name: Generate MD5 Checksums
@@ -111,4 +113,6 @@ jobs:
           cd ./artifacts
           gh release upload $RELEASE_DATE ./WebView2_dbg_x64.zip
           gh release upload $RELEASE_DATE ./WebView2_rel_x64.zip
+          gh release upload $RELEASE_DATE ./WebView2_dbg_win32.zip
+          gh release upload $RELEASE_DATE ./WebView2_rel_win32.zip
           gh release upload $RELEASE_DATE ./filelist.txt
